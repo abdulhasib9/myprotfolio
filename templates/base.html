@@ -13,10 +13,18 @@
     <link rel="stylesheet" href="{% static 'css/unicons.css' %}">
     <link rel="stylesheet" href=" {% static 'css/owl.carousel.min.css' %} ">
     <link rel="stylesheet" href=" {% static 'css/owl.theme.default.min.css' %} ">
-
+    <link rel="stylesheet" href=" {% static 'css/font-awesome.min.css' %} ">
     <!-- MAIN STYLE -->
     <link rel="stylesheet" href="{% static 'css/tooplate-style.css' %} ">
+
+
+    {% comment %} tests {% endcomment %}
+    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
     
+    <script src="{% static 'js/slider.js' %}"></script> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/slider.css' %}">
 
   </head>
   <body>
@@ -98,8 +106,126 @@
         </div>
     </section>
 
+
+
+    {% comment %} custom {% endcomment %}
+
+ <section>
+
+    <div class="row">
+      <div class="col-lg-11 text-center mx-auto col-12">
+        <div class="col-lg-8 mx-auto">
+          <h2>Projects</h2>
+        </div>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>   
+        <!-- Wrapper for carousel items -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="thumb-wrapper">
+                  <div class="img-box">
+                    <img src="{% static 'images/undraw/undraw_software_engineer_lvl5.svg' %}" class="img-fluid" alt="">
+                  </div>
+                  <div class="thumb-content">
+                    <h4>London</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam.</p>
+                    <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                  </div>						
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="thumb-wrapper">
+                  <div class="img-box">
+                    <img src="{% static 'images/undraw/undraw_software_engineer_lvl5.svg' %}" class="img-fluid" alt="">
+                  </div>
+                  <div class="thumb-content">
+                    <h4>New York</h4>
+                    <p>Vivamus fermentum in arcu in aliquam. Quisque aliqua porta odio in fringilla vivamus.</p>
+                    <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                  </div>						
+                </div>
+              </div>				
+              <div class="col-sm-4">
+                <div class="thumb-wrapper">
+                  <div class="img-box">
+                    <img src="/examples/images/cities/paris.png" class="img-fluid" alt="">
+                  </div>
+                  <div class="thumb-content">
+                    <h4>Paris</h4>
+                    <p>Convallis eget pretium eu, bibendum non leo. Proin susc ipit purus adipiscing dolor.</p>
+                    <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                  </div>						
+                </div>					
+              </div>
+            </div>
+          </div>
+         
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="thumb-wrapper">
+                  <div class="img-box">
+                    <img src="/examples/images/cities/rio-de-janeiro.png" class="img-fluid" alt="">
+                  </div>
+                  <div class="thumb-content">
+                    <h4>Rio De Janeiro</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam.</p>
+                    <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                  </div>						
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="thumb-wrapper">
+                  <div class="img-box">
+                    <img src="/examples/images/cities/giza.png" class="img-fluid" alt="">
+                  </div>
+                  <div class="thumb-content">
+                    <h4>Giza</h4>
+                    <p>Vivamus fermentum in arcu in aliquam. Quisque aliqua porta odio in fringilla vivamus.</p>
+                    <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                  </div>						
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="thumb-wrapper">
+                  <div class="img-box">
+                    <img src="/examples/images/cities/sydney.png" class="img-fluid" alt="">
+                  </div>
+                  <div class="thumb-content">
+                    <h4>Sydney</h4>
+                    <p>Convallis eget pretium eu, bibendum non leo. Proin susc ipit purus adipiscing dolor.</p>
+                    <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                  </div>						
+                </div>					
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Carousel controls -->
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+          <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+          <i class="fa fa-hand-o-right"></i>
+        </a>
+      </div>
+      </div>
+    </div>
+
+
+  </section>
+
+
+
     <!-- PROJECTS -->
-    <section class="project py-5" id="project">
+    {% comment %} <section class="project py-5" id="project">
         <div class="container">
                 
                 <div class="row">
@@ -109,7 +235,14 @@
                         <h2>Things I have designed for digital media agencies</h2>
                       </div>
 
-                      <div class="owl-carousel owl-theme">
+
+                      
+
+
+
+
+
+                      {% comment %} <div class="owl-carousel owl-theme">
                         <div class="item">
                           <div class="project-info">
                             <img src="{% static 'images/project/project-image01.png' %} " class="img-fluid" alt="project image">
@@ -126,7 +259,7 @@
                           <div class="project-info">
                             <img src=" {% static 'images/project/project-image03.png' %} " class="img-fluid" alt="project image">
                           </div>
-                        </div>
+                        </div> {% endcomment %}
 
                         {% comment %} <div class="item">
                           <div class="project-info">
@@ -141,10 +274,10 @@
                         </div>
                       </div> {% endcomment %}
 
-                  </div>
+                  {% comment %} </div>
                 </div>
         </div>
-    </section>
+    </section> {% endcomment %} 
 
     <!-- FEATURES -->
     <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
