@@ -17,20 +17,14 @@
     <!-- MAIN STYLE -->
     <link rel="stylesheet" href="{% static 'css/tooplate-style.css' %} ">
     
-<!--
 
-Tooplate 2115 Marvel
-
-https://www.tooplate.com/view/2115-marvel
-
--->
   </head>
   <body>
 
     <!-- MENU -->
     <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class='uil uil-user'></i> Marvel</a>
+            <a class="navbar-brand" href="{% url 'main:home' %}"><i class='uil uil-user'></i> Hasib</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -134,18 +128,18 @@ https://www.tooplate.com/view/2115-marvel
                           </div>
                         </div>
 
-                        <div class="item">
+                        {% comment %} <div class="item">
                           <div class="project-info">
                             <img src="images/project/project-image04.png" class="img-fluid" alt="project image">
                           </div>
-                        </div>
+                        </div> {% endcomment %}
 
-                        <div class="item">
+                        {% comment %} <div class="item">
                           <div class="project-info">
                             <img src="images/project/project-image05.png" class="img-fluid" alt="project image">
                           </div>
                         </div>
-                      </div>
+                      </div> {% endcomment %}
 
                   </div>
                 </div>
