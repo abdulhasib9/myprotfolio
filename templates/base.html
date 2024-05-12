@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,13 +9,13 @@
 
     <title>Marvel HTML Bootstrap 4 Template</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/unicons.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/unicons.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/owl.carousel.min.css' %} ">
+    <link rel="stylesheet" href=" {% static 'css/owl.theme.default.min.css' %} ">
 
     <!-- MAIN STYLE -->
-    <link rel="stylesheet" href="css/tooplate-style.css">
+    <link rel="stylesheet" href="{% static 'css/tooplate-style.css' %} ">
     
 <!--
 
@@ -77,12 +78,13 @@ https://www.tooplate.com/view/2115-marvel
                         <h1 class="animated animated-text">
                             <span class="mr-2">Hey folks, I'm</span>
                                 <div class="animated-info">
-                                    <span class="animated-item">Marvel Sann</span>
-                                    <span class="animated-item">Web Designer</span>
-                                    <span class="animated-item">UI Specialist</span>
+                                    <span class="animated-item">Abdul Hasib</span>
+                                    <span class="animated-item">Yousufzai</span>
+                                    <span class="animated-item">Full Stack Devloper</span>
+                                    {% comment %} <span class="animated-item">Devoloper</span> {% endcomment %}
                                 </div>
                         </h1>
-
+                        <br>
                         <p>Building a successful product is a challenge. I am highly energetic in user experience design, interfaces and web development.</p>
                         
                         <div class="custom-btn-group mt-4">
@@ -94,7 +96,7 @@ https://www.tooplate.com/view/2115-marvel
 
                 <div class="col-lg-5 col-md-12 col-12">
                     <div class="about-image svg">
-                        <img src="images/undraw/undraw_software_engineer_lvl5.svg" class="img-fluid" alt="svg image">
+                        <img src=" {% static 'images/undraw/undraw_software_engineer_lvl5.svg' %} " class="img-fluid" alt="svg image">
                     </div>
                 </div>
 
@@ -116,19 +118,19 @@ https://www.tooplate.com/view/2115-marvel
                       <div class="owl-carousel owl-theme">
                         <div class="item">
                           <div class="project-info">
-                            <img src="images/project/project-image01.png" class="img-fluid" alt="project image">
+                            <img src="{% static 'images/project/project-image01.png' %} " class="img-fluid" alt="project image">
                           </div>
                         </div>
 
                         <div class="item">
                           <div class="project-info">
-                            <img src="images/project/project-image02.png" class="img-fluid" alt="project image">
+                            <img src=" {% static 'images/project/project-image02.png' %} " class="img-fluid" alt="project image">
                           </div>
                         </div>
 
                         <div class="item">
                           <div class="project-info">
-                            <img src="images/project/project-image03.png" class="img-fluid" alt="project image">
+                            <img src=" {% static 'images/project/project-image03.png' %} " class="img-fluid" alt="project image">
                           </div>
                         </div>
 
@@ -255,9 +257,9 @@ https://www.tooplate.com/view/2115-marvel
 
             <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
                 <div class="contact-info-item">
-                  <h3 class="mb-3 text-white">Say hello</h3>
+                  <h3 class="mb-3 text-white">Say Hello</h3>
                   <p class="footer-text mb-0">010 020 0960</p>
-                  <p><a href="mailto:hello@company.co">hello@company.co</a></p>
+                  <p><a href="mailto:hello@company.co">info@thecodecamp.org</a></p>
                 </div>
 
                 <ul class="social-links">
@@ -304,22 +306,23 @@ https://www.tooplate.com/view/2115-marvel
                <div class="row">
 
                     <div class="col-lg-12 col-12">                                
-                        <p class="copyright-text text-center">Copyright &copy; 2019 Company Name . All rights reserved</p>
-                        <p class="copyright-text text-center">Designed by <a rel="nofollow" href="https://www.facebook.com/tooplate">Tooplate</a></p>
+                        <p class="copyright-text text-center">Copyright &copy; {% now 'Y' %}
+                          AHY Portfolio . All rights reserved</p>
+                        <p class="copyright-text text-center">Designed by <a rel="nofollow" href="https://www.linkedin.com/in/abdul-hasib-yousufzai-053a8b186/">Abdul Hasib Yousufzai</a></p>
                     </div>
                     
                </div>
           </div>
      </footer>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/Headroom.js"></script>
-    <script src="js/jQuery.headroom.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/smoothscroll.js"></script>
-    <script src="js/custom.js"></script>
+    <script src=" {% static 'js/jquery-3.3.1.min.js' %} "></script>
+    <script src=" {% static 'js/popper.min.js' %} "></script>
+    <script src=" {% static 'js/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'js/Headroom.js' %} "></script>
+    <script src=" {% static 'js/jQuery.headroom.js' %} "></script>
+    <script src=" {% static 'js/owl.carousel.min.j' %} s"></script>
+    <script src=" {% static 'js/smoothscroll.js' %} "></script>
+    <script src=" {% static 'js/custom.js' %} "></script>
 
   </body>
 </html>
