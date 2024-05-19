@@ -17,6 +17,36 @@ class UserProfile(models.Model):
         return self.email
     
 
+class ProgrammingLanguage(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    image = models.ImageField(upload_to='static/programming_languages/', blank=True, null=True)
+    def __str__(self):
+        return self.name
+    
+class Framework_Tools_Category(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    description = models.TextField(null=True,default="IT")
+
+    def __str__(self):
+        return self.name
+    
+class FrameworkAndTool(models.Model):
+    TYPE_CHOICES = (
+        ('Framework', 'Framework'),
+        ('Tool', 'Tool'),
+    )
+
+    name = models.CharField(max_length=255, unique=True)
+    description = models.TextField(blank=True, null=True)
+    type = models.CharField(max_length=20, choices=TYPE_CHOICES)
+    category = models.ForeignKey(Framework_Tools_Category, on_delete=models.CASCADE, related_name='frameworks_and_tools')
+    image = models.ImageField(upload_to='static/framework_tools/', blank=True, null=True)
+    # programming_language = models.ForeignKey(ProgrammingLanguage, on_delete=models.CASCADE, related_name='frameworks_and_tools')
+
+    def __str__(self):
+        return self.name
+
+
 class Skill(models.Model):
     LEVEL_CHOICES = (
         ('Beginner', 'Beginner'),
@@ -25,8 +55,27 @@ class Skill(models.Model):
     )
     name = models.CharField(max_length=100)
     level = models.CharField(max_length=20, choices=LEVEL_CHOICES)
-    image = models.ImageField(upload_to='skills/', blank=True)
+    # image = models.ImageField(upload_to='static/skills/', blank=True)
+    
+    def __str__(self):
+        return self.name
+    
 
+# class Project(models.Model):
+#     CATEGORY_CHOICES = [
+#         ('software', 'Software'),
+#         ('network', 'Network'),
+#         ('cybersecurity', 'Cybersecurity'),
+#         ('other', 'Other'),
+#     ]
+#     title = models.CharField(max_length=255)
+#     description = models.TextField(blank=True)
+    
+#     image = models.ImageField(upload_to='projects/',blank=True)
+#     url = models.URLField()
+#     github_url = models.URLField(blank=True, null=True)
+#     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES,default='software')
+    
 class Project(models.Model):
     CATEGORY_CHOICES = [
         ('software', 'Software'),
@@ -36,19 +85,29 @@ class Project(models.Model):
     ]
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
-    
-    image = models.ImageField(upload_to='projects/')
+    image = models.ImageField(upload_to='static/projects/', blank=True)
     url = models.URLField()
     github_url = models.URLField(blank=True, null=True)
-    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES,default='software')
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default='software')
+    programmin_languages = models.ManyToManyField(ProgrammingLanguage, related_name='projects')
+    frameworks_and_tools = models.ManyToManyField(FrameworkAndTool, related_name='projects')
+    
+    def __str__(self):
+        return self.title
     
 
 class Education(models.Model):
     title = models.CharField(max_length=255)
+    abbr = models.CharField( max_length=255,blank=True)
     institution = models.CharField(max_length=255)
+    location = models.CharField( max_length=255,blank=True)
     start_date = models.DateField()
     end_date = models.DateField()
-    image = models.ImageField(upload_to='education/')
+    image = models.ImageField(upload_to='static/education/')
+    
+    def __str__(self):
+        return self.title
+    
 
 def certification_image_upload_to(instance, filename):
     # Get the extension of the file
@@ -84,11 +143,14 @@ class Certification(models.Model):
         return self.title
 
 class Experience(models.Model):
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    # user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE,blank=True)
+    # project = models.ForeignKey(Project, on_delete=models.CASCADE , blank=True,default="IT")
     position = models.CharField(max_length=255)
+    company = models.CharField(max_length=255,blank=True)
+    description = models.TextField(blank=True)
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
+    location = models.CharField( max_length=255,blank=True)
     is_current = models.BooleanField(default=False)
 
     def duration(self):
@@ -96,6 +158,10 @@ class Experience(models.Model):
             return self.end_date - self.start_date
         else:
             return None
+        
+    def __str__(self):
+        return self.position
+    
 
 class MenuItem(models.Model):
     name = models.CharField(max_length=255)

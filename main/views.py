@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import MenuItem,Certification,UserProfile
+from .models import MenuItem,Certification,UserProfile,Experience,Education,ProgrammingLanguage,Skill,FrameworkAndTool,Project
 from django.core.paginator import Paginator
 # Create your views here.
 def home(request):
@@ -12,6 +12,39 @@ def home(request):
         'certifications':certifications,
         'profile':profile
     })
+ 
+def list_project(request):
+    menu_items = MenuItem.objects.all()
+    projects = Project.objects.all()
+    paginator = Paginator(projects, 5)  # Show 5 projects per page
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'page_obj': page_obj,
+        'menu_items':menu_items
+    }
+    return render(request, 'main/projects.html', context)
+    
+def list_experience(request):
+    menu_items = MenuItem.objects.all()
+    experiences  = Experience.objects.all()
+    educations = Education.objects.all()
+    programming_languages = ProgrammingLanguage.objects.all()
+    skills = Skill.objects.all()
+    framework_tools = FrameworkAndTool.objects.all()
+    
+    context = {
+        'experiences':experiences,
+        'menu_items':menu_items,
+        'educations':educations,
+        'programming_languages':programming_languages,
+        'skills':skills,
+        'framework_tools':framework_tools
+        
+    }
+    return render(request,'main/resume.html',context)
 
 
 def about(request):

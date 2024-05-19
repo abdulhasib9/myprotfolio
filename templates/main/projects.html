@@ -1,0 +1,163 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section>
+
+    <div class="container px-5 mb-5">
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+
+                {% for project in page_obj %}
+                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <h2 class="fw-bolder">{{project.title}}</h2>
+                                <p>{{project.description}}</p>
+                                <h3>Languages and Tools</h3>
+                                <p>
+                                    
+                                    {% for language in project.programmin_languages.all %}
+                                    <span> <img src="/{{language.image}}"style="max-width:30px;" alt=""> {{language.name}} &nbsp;</span>
+                                    {% endfor %}
+
+                                    {% for ftool in project.frameworks_and_tools.all %}
+                                    <span> <img src="/{{ftool.image}}"style="max-width:30px;" alt=""> {{ftool.name}} &nbsp;</span>
+                                    {% endfor %}
+                              
+                                </p>
+                                <hr>
+                               <div>
+                                <a href="#" class="btn btn-outline-success">Github</a>
+                                <a href="#" class="btn btn-outline-success">Demo</a>
+                               </div>
+                            </div>
+                            
+                            <img class="img-fluid" src="/{{project.image}}" style="max-width: 350px;" alt="..." />
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p>No Data Available</p>
+            {% endfor %}
+                <!-- Project Card 1-->
+             
+              
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+
+
+
+        {% comment %} <h1>Projects</h1>
+        <ul class="list-group mb-4">
+            {% for project in page_obj %}
+                <li class="list-group-item">
+                    <h5>{{ project.title }}</h5>
+                    <p>{{ project.description }}</p>
+                </li>
+            {% endfor %}
+        </ul> {% endcomment %}
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1" aria-label="First">
+                            <span aria-hidden="true">&laquo;&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-hidden="true">&laquo;&laquo;</span>
+                    </li>
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-hidden="true">&laquo;</span>
+                    </li>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+                            <span aria-hidden="true">&raquo;&raquo;</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-hidden="true">&raquo;</span>
+                    </li>
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-hidden="true">&raquo;&raquo;</span>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</section>
+
+         <!-- Projects Section-->
+         <section class="py-5">
+            <div class="container px-5 mb-5">
+                <div class="text-center mb-5">
+                    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-11 col-xl-9 col-xxl-8">
+                        <!-- Project Card 1-->
+                        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                            <div class="card-body p-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="p-5">
+                                        <h2 class="fw-bolder">Project Name 1</h2>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum illum aperiam placeat esse? Mollitia omnis minima saepe recusandae libero, iste ad asperiores! Explicabo commodi quo itaque! Ipsam!</p>
+                                    </div>
+                                    <img class="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d" alt="..." />
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Call to action section-->
+        <section class="py-5 bg-gradient-primary-to-secondary text-white">
+            <div class="container px-5 my-5">
+                <div class="text-center">
+                    <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
+                    <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="#">Contact me</a>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+{% endblock content %}
