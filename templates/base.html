@@ -1,437 +1,49 @@
 {% load static %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Marvel HTML Bootstrap 4 Template</title>
-
-    <link rel="stylesheet" href=" {% static 'css/bootstrap.min.css' %} ">
-    <link rel="stylesheet" href="{% static 'css/unicons.css' %}">
-    <link rel="stylesheet" href=" {% static 'css/owl.carousel.min.css' %} ">
-    <link rel="stylesheet" href=" {% static 'css/owl.theme.default.min.css' %} ">
-    <link rel="stylesheet" href=" {% static 'css/font-awesome.min.css' %} ">
-    <!-- MAIN STYLE -->
-    <link rel="stylesheet" href="{% static 'css/tooplate-style.css' %} ">
+{% include 'partials/_header.html' %}
 
 
-    {% comment %} tests {% endcomment %}
-    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
-    
-    <script src="{% static 'js/slider.js' %}"></script> {% endcomment %}
-    <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+           {% include 'partials/_nav.html' %}
+            <!-- Header-->
+            {% block header_area %}
+            
+            {% endblock header_area %}
 
-  </head>
-  <body>
-
-    <!-- MENU -->
-   {% include 'partials/_nav.html' %}
-
-    <!-- ABOUT -->
-    <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
-        <div class="container">
-            <div class="row">
+            <section>
+              {% block content %}
+            
+              {% endblock content %}
+            </section>
+            
 
 
-              {% comment %} testing {% endcomment %}
+            <!-- About Section-->
+            {% block about_section %}
+            
+            {% endblock about_section %}
 
 
-              {% comment %} <ul>
-                
-                {% for certification in certifications %}
-                    <li><a href="">{{ certification.title}}</a></li>
-                {% empty %}
-                    <li>No certifications found.</li>
-                {% endfor %}
-            </ul> {% endcomment %}
-        
-
-
-
-
-              {% comment %} end of testing {% endcomment %}
-                
-                <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
-                    <div class="about-text">
-                        <small class="small-text">Welcome to <span class="mobile-block">my portfolio website!</span></small>
-                        <h1 class="animated animated-text">
-                            <span class="mr-2">Hey folks, I'm</span>
-                                <div class="animated-info">
-                                    <span class="animated-item">Abdul Hasib</span>
-                                    <span class="animated-item">Yousufzai</span>
-                                    <span class="animated-item">Full Stack Devloper</span>
-                                    {% comment %} <span class="animated-item">Devoloper</span> {% endcomment %}
-                                </div>
-                        </h1>
-                        <br>
-                        <p>Building a successful product is a challenge. I am highly energetic in user experience design, interfaces and web development.</p>
-                        
-                        <div class="custom-btn-group mt-4">
-                          <a href="#" class="btn mr-lg-2 custom-btn"><i class='uil uil-file-alt'></i> Download Resume</a>
-                          <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Get a free quote</a>
-                        </div>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; AHY Protfolio {% now 'Y'%}</div></div>
+                    <div class="col-auto">
+                        <a class="small" href="#!">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Terms</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Contact</a>
                     </div>
                 </div>
-
-                <div class="col-lg-5 col-md-12 col-12">
-                    <div class="about-image svg">
-                        <img src=" {% static 'images/undraw/undraw_software_engineer_lvl5.svg' %} " class="img-fluid" alt="svg image">
-                    </div>
-                </div>
-
             </div>
-        </div>
-    </section>
-
-
-
-    {% comment %} custom {% endcomment %}
-
- <section>
-
-    <div class="row">
-      <div class="col-lg-11 text-center mx-auto col-12">
-        <div class="col-lg-8 mx-auto">
-          <h2>Projects</h2>
-        </div>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-        <!-- Carousel indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>   
-        <!-- Wrapper for carousel items -->
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="thumb-wrapper">
-                  <div class="img-box">
-                    <img src="{% static 'images/undraw/undraw_software_engineer_lvl5.svg' %}" class="img-fluid" alt="">
-                  </div>
-                  <div class="thumb-content">
-                    <h4>London</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam.</p>
-                    <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
-                  </div>						
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="thumb-wrapper">
-                  <div class="img-box">
-                    <img src="{% static 'images/undraw/undraw_software_engineer_lvl5.svg' %}" class="img-fluid" alt="">
-                  </div>
-                  <div class="thumb-content">
-                    <h4>New York</h4>
-                    <p>Vivamus fermentum in arcu in aliquam. Quisque aliqua porta odio in fringilla vivamus.</p>
-                    <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
-                  </div>						
-                </div>
-              </div>				
-              <div class="col-sm-4">
-                <div class="thumb-wrapper">
-                  <div class="img-box">
-                    <img src="/examples/images/cities/paris.png" class="img-fluid" alt="">
-                  </div>
-                  <div class="thumb-content">
-                    <h4>Paris</h4>
-                    <p>Convallis eget pretium eu, bibendum non leo. Proin susc ipit purus adipiscing dolor.</p>
-                    <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
-                  </div>						
-                </div>					
-              </div>
-            </div>
-          </div>
-         
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="thumb-wrapper">
-                  <div class="img-box">
-                    <img src="/examples/images/cities/rio-de-janeiro.png" class="img-fluid" alt="">
-                  </div>
-                  <div class="thumb-content">
-                    <h4>Rio De Janeiro</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam.</p>
-                    <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
-                  </div>						
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="thumb-wrapper">
-                  <div class="img-box">
-                    <img src="/examples/images/cities/giza.png" class="img-fluid" alt="">
-                  </div>
-                  <div class="thumb-content">
-                    <h4>Giza</h4>
-                    <p>Vivamus fermentum in arcu in aliquam. Quisque aliqua porta odio in fringilla vivamus.</p>
-                    <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
-                  </div>						
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="thumb-wrapper">
-                  <div class="img-box">
-                    <img src="/examples/images/cities/sydney.png" class="img-fluid" alt="">
-                  </div>
-                  <div class="thumb-content">
-                    <h4>Sydney</h4>
-                    <p>Convallis eget pretium eu, bibendum non leo. Proin susc ipit purus adipiscing dolor.</p>
-                    <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
-                  </div>						
-                </div>					
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Carousel controls -->
-        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-          <i class="fa fa-angle-left"></i>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-          <i class="fa fa-hand-o-right"></i>
-        </a>
-      </div>
-      </div>
-    </div>
-
-
-  </section>
-
-
-
-    <!-- PROJECTS -->
-    {% comment %} <section class="project py-5" id="project">
-        <div class="container">
-                
-                <div class="row">
-                  <div class="col-lg-11 text-center mx-auto col-12">
-
-                      <div class="col-lg-8 mx-auto">
-                        <h2>Things I have designed for digital media agencies</h2>
-                      </div>
-
-
-                      
-
-
-
-
-
-                      {% comment %} <div class="owl-carousel owl-theme">
-                        <div class="item">
-                          <div class="project-info">
-                            <img src="{% static 'images/project/project-image01.png' %} " class="img-fluid" alt="project image">
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <img src=" {% static 'images/project/project-image02.png' %} " class="img-fluid" alt="project image">
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <img src=" {% static 'images/project/project-image03.png' %} " class="img-fluid" alt="project image">
-                          </div>
-                        </div> {% endcomment %}
-
-                        {% comment %} <div class="item">
-                          <div class="project-info">
-                            <img src="images/project/project-image04.png" class="img-fluid" alt="project image">
-                          </div>
-                        </div> {% endcomment %}
-
-                        {% comment %} <div class="item">
-                          <div class="project-info">
-                            <img src="images/project/project-image05.png" class="img-fluid" alt="project image">
-                          </div>
-                        </div>
-                      </div> {% endcomment %}
-
-                  {% comment %} </div>
-                </div>
-        </div>
-    </section> {% endcomment %} 
-
-    <!-- FEATURES -->
-    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-6 col-12">
-                  <h2 class="mb-4">Experiences</h2>
-
-                    <div class="timeline">
-                        <div class="timeline-wrapper">
-                             <div class="timeline-yr">
-                                  <span>2019</span>
-                             </div>
-                             <div class="timeline-info">
-                                  <h3><span>Project Manager</span><small>Best Studio</small></h3>
-                                  <p>Proin ornare non purus ut rutrum. Nulla facilisi. Aliquam laoreet libero ac pharetra feugiat. Cras ac fermentum nunc, a faucibus nunc.</p>
-                             </div>
-                        </div>
-
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2018</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>UX Designer</span><small>Digital Ace</small></h3>
-                                <p>Fusce rutrum augue id orci rhoncus molestie. Nunc auctor dignissim lacus vel iaculis.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2016</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>UI Freelancer</h3>
-                                <p>Sed fringilla vitae enim sit amet cursus. Sed cursus dictum tortor quis pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2014</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>Junior Designer<small>Crafted Co.</small></h3>
-                                <p>Cras scelerisque scelerisque condimentum. Nullam at volutpat mi. Nunc auctor ipsum eget magna consequat viverra.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-12">
-                  <h2 class="mb-4 mobile-mt-2">Educations</h2>
-
-                    <div class="timeline">
-                        <div class="timeline-wrapper">
-                             <div class="timeline-yr">
-                                  <span>2017</span>
-                             </div>
-                             <div class="timeline-info">
-                                  <h3><span>Mobile Web</span><small>Master Design</small></h3>
-                                  <p>Please tell your friends about Tooplate website. That would be very helpful. We need your support.</p>
-                             </div>
-                        </div>
-
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2015</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>User Interfaces</span><small>Creative Agency</small></h3>
-                                <p><a rel="nofollow" href="https://www.facebook.com/tooplate">Tooplate</a> is a great website to download HTML templates without any login or email.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2013</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>Artwork Design</span><small>New Art School</small></h3>
-                                <p>You can freely use Tooplate's templates for your business or personal sites. You cannot redistribute this template without a permission.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact py-5" id="contact">
-      <div class="container">
-        <div class="row">
-          
-          <div class="col-lg-5 mr-lg-5 col-12">
-            <div class="google-map w-100">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.558402180099!2d-73.99373482142036!3d40.75895421922642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855b8fb3083%3A0xa0f9aef176042a5c!2sTheater+District%2C+New+York%2C+NY%2C+USA!5e0!3m2!1sen!2smm!4v1549875377188" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
-
-            <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
-                <div class="contact-info-item">
-                  <h3 class="mb-3 text-white">Say Hello</h3>
-                  <p class="footer-text mb-0">010 020 0960</p>
-                  <p><a href="mailto:hello@company.co">info@thecodecamp.org</a></p>
-                </div>
-
-                <ul class="social-links">
-                     <li><a href="#" class="uil uil-dribbble" data-toggle="tooltip" data-placement="left" title="Dribbble"></a></li>
-                     <li><a href="#" class="uil uil-instagram" data-toggle="tooltip" data-placement="left" title="Instagram"></a></li>
-                     <li><a href="#" class="uil uil-youtube" data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
-                </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6 col-12">
-            <div class="contact-form">
-              <h2 class="mb-4">Interested to work together? Let's talk</h2>
-
-              <form action="" method="get">
-                <div class="row">
-                  <div class="col-lg-6 col-12">
-                    <input type="text" class="form-control" name="name" placeholder="Your Name" id="name">
-                  </div>
-
-                  <div class="col-lg-6 col-12">
-                    <input type="email" class="form-control" name="email" placeholder="Email" id="email">
-                  </div>
-
-                  <div class="col-12">
-                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
-                  </div>
-
-                  <div class="ml-lg-auto col-lg-5 col-12">
-                    <input type="submit" class="form-control submit-btn" value="Send Button">
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-     <footer class="footer py-5">
-          <div class="container">
-               <div class="row">
-
-                    <div class="col-lg-12 col-12">                                
-                        <p class="copyright-text text-center">Copyright &copy; {% now 'Y' %}
-                          AHY Portfolio . All rights reserved</p>
-                        <p class="copyright-text text-center">Designed by <a rel="nofollow" href="https://www.linkedin.com/in/abdul-hasib-yousufzai-053a8b186/">Abdul Hasib Yousufzai</a></p>
-                    </div>
-                    
-               </div>
-          </div>
-     </footer>
-
-    <script src=" {% static 'js/jquery-3.3.1.min.js' %} "></script>
-    <script src=" {% static 'js/popper.min.js' %} "></script>
-    <script src=" {% static 'js/bootstrap.min.js' %} "></script>
-    <script src=" {% static 'js/Headroom.js' %} "></script>
-    <script src=" {% static 'js/jQuery.headroom.js' %} "></script>
-    <script src=" {% static 'js/owl.carousel.min.j' %} s"></script>
-    <script src=" {% static 'js/smoothscroll.js' %} "></script>
-    <script src=" {% static 'js/custom.js' %} "></script>
-
-  </body>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src=" {% static 'js/scripts.js' %} "></script>
+    </body>
 </html>
